@@ -48,7 +48,7 @@ func (mr *MapReduce) RunMaster() *list.List {
 		       break
 	      } else {
 		       //Meaning the job somehow failed
-	      	       fmt.Printf("Distributing Job fails, and will go")
+	      	       fmt.Printf("Distributing Job fails, and will go on")
 		       cur_wk = <- mr.registerChannel
 		       continue
 	      }
@@ -65,7 +65,7 @@ func (mr *MapReduce) RunMaster() *list.List {
 						break L1
 				    }
 		       }
-         }	
+      }	
   //Assigning the Reduce Job
   for i := 0; i < mr.nReduce; i++ {
       //Check if there is worker available
@@ -83,7 +83,7 @@ func (mr *MapReduce) RunMaster() *list.List {
 		       break
 	      } else {
 		       //Meaning the job somehow failed
-		       fmt.Printf("Distributing Job fails, and will go")
+		       fmt.Printf("Distributing Job fails, and will go on")
 		       cur_wk = <- mr.registerChannel
 		       continue
 	      }
@@ -100,7 +100,7 @@ func (mr *MapReduce) RunMaster() *list.List {
 						break L2
 				    }
 		       }
-         }	 
+      }	 
 
   return mr.KillWorkers()
 }
